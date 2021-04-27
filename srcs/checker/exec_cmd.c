@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 16:33:26 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/22 11:06:48 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/04/22 11:15:56 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ int		exec_cmd(char *arg_cmd, t_stack *a, t_stack *b)
 	init_cmds(cmds);
 	if ((i = check_cmds(arg_cmd, cmds)) == -1)
 		return (-1);
-	cmds[i].fct(a,b);
+	cmds[i].fct(a,b, 0);
 	return (0);
 }

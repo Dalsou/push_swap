@@ -6,7 +6,7 @@
 #    By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/15 15:07:02 by afoulqui          #+#    #+#              #
-#    Updated: 2021/04/22 11:07:34 by afoulqui         ###   ########.fr        #
+#    Updated: 2021/04/22 14:20:36 by afoulqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC_CHECKER =	checker.c \
 				exec_cmd.c
 
 SRC_PS		=	push_swap.c \
-				sort_5.c
+				sort_5.c \
+				find_min_max.c
 
 SRC_SHARED	=	parse_args.c \
 				utils_stack.c \

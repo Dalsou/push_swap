@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:16:21 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/22 11:07:24 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/04/22 16:25:09 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct	s_stack
 typedef struct s_cmds
 {
 	char		*cmd;
-	void		(*fct)(t_stack *a, t_stack *b);
+	void		(*fct)(t_stack *a, t_stack *b, int print);
 }				t_cmds;
 
 /*
@@ -49,6 +49,11 @@ void		sort_5(t_stack *a, t_stack *b);
 void		op_and_print(char *cmd, t_stack *a, t_stack *b);
 void		init_cmds(t_cmds cmds[11]);
 int			check_cmds(char *arg_cmd, t_cmds cmds[11]);
+void		find_min_max(t_stack *stack, int *min_i, int *max_i);
+int			find_index(t_stack *stack, int nbr);
+void		sort_3(t_stack *a, t_stack *b);
+void		sort_lastnbr(t_stack *a, t_stack *b);
+void		check_order(t_stack *a, t_stack *b);
 
 /*
 **	SHARED
@@ -68,16 +73,16 @@ void		free_allstacks(t_stack **a, t_stack **b);
 **	OPERATIONS
 */
 
-void		ft_sa(t_stack *a, t_stack *b);
-void		ft_sb(t_stack *a, t_stack *b);
-void		ft_ss(t_stack *a, t_stack *b);
-void		ft_pa(t_stack *a, t_stack *b);
-void		ft_pb(t_stack *a, t_stack *b);
-void		ft_ra(t_stack *a, t_stack *b);
-void		ft_rb(t_stack *a, t_stack *b);
-void		ft_rr(t_stack *a, t_stack *b);
-void		ft_rra(t_stack *a, t_stack *b);
-void		ft_rrb(t_stack *a, t_stack *b);
-void		ft_rrr(t_stack *a, t_stack *b);
+void		ft_sa(t_stack *a, t_stack *b, int print);
+void		ft_sb(t_stack *a, t_stack *b, int print);
+void		ft_ss(t_stack *a, t_stack *b, int print);
+void		ft_pa(t_stack *a, t_stack *b, int print);
+void		ft_pb(t_stack *a, t_stack *b, int print);
+void		ft_ra(t_stack *a, t_stack *b, int print);
+void		ft_rb(t_stack *a, t_stack *b, int print);
+void		ft_rr(t_stack *a, t_stack *b, int print);
+void		ft_rra(t_stack *a, t_stack *b, int print);
+void		ft_rrb(t_stack *a, t_stack *b, int print);
+void		ft_rrr(t_stack *a, t_stack *b, int print);
 
 #endif

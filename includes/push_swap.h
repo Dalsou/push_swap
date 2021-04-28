@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:16:21 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/22 16:25:09 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/04/27 16:32:28 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,12 @@ void		op_and_print(char *cmd, t_stack *a, t_stack *b);
 void		init_cmds(t_cmds cmds[11]);
 int			check_cmds(char *arg_cmd, t_cmds cmds[11]);
 void		find_min_max(t_stack *stack, int *min_i, int *max_i);
+int			find_min(t_stack *stack);
+int			find_max(t_stack *stack);
 int			find_index(t_stack *stack, int nbr);
 void		sort_3(t_stack *a, t_stack *b);
-void		sort_lastnbr(t_stack *a, t_stack *b);
-void		check_order(t_stack *a, t_stack *b);
+void		sort_lastnbr(t_stack *a, t_stack *b, int min, int max);
+void		check_order(t_stack *a, t_stack *b, int min, int max);
 
 /*
 **	SHARED

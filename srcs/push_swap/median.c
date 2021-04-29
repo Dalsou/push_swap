@@ -1,57 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   median.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/20 14:11:38 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/29 16:48:04 by afoulqui         ###   ########.fr       */
+/*   Created: 2021/04/28 11:46:37 by afoulqui          #+#    #+#             */
+/*   Updated: 2021/04/29 17:08:54 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool		b_is_sorted(t_stack *stack)
+void	sort_nbr(int *nbr, int len)
 {
 	int		i;
+	int		tmp;
 
+	tmp = nbr[0];
 	i = 0;
-	while (i < stack->size - 1)
+	while (i < len - 1)
 	{
-		if (stack->data[i] > stack->data[i + 1])
-			return (FALSE);
-		i++;
+		if (nbr[i] <= nbr[i + 1])
+			i++;
+		else
+		{
+			tmp = nbr[i];
+			nbr[i] = nbr[i + 1];
+			nbr[i + 1] = tmp;
+			i = 0;
+		}
+		
 	}
-	return (TRUE);
 }
 
-bool		a_is_sorted(t_stack *stack)
+int		find_median(t_stack *stack)
 {
+	int		*sorted;
+	int		median;
 	int		i;
 
-	i = 0;
-	while (i < stack->size - 1)
-	{
-		if (stack->data[i] < stack->data[i + 1])
-			return (FALSE);
-		i++;
-	}
-	return (TRUE);
-}
-
-bool		is_sorted(t_stack *a, t_stack *b)
-{
-	int		i;
-
-	if (b->size != 0)
+	sorted = (int*)malloc(sizeof(int) * (stack->size + 1));
+	if (!sorted)
 		return (-1);
 	i = 0;
-	while (i < a->size - 1)
+	while (i < stack->size)
 	{
-		if (a->data[i] < a->data[i + 1])
-			return (FALSE);
+		sorted[i] = stack->data[i];
 		i++;
 	}
-	return (TRUE);
+	sort_nbr(sorted, stack->size);
+	median = sorted[stack->size / 2];
+	free(sorted);
+	return (median);
 }

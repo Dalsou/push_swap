@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:16:21 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/27 16:32:28 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/04/29 16:48:38 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@
 # include <limits.h>
 
 # include "libft.h"
+
+# define A a->data
+# define B b->data
+# define A_TOP a->data[a->size - 1]
+# define B_TOP b->data[b->size - 1]
+# define A_SEC a->data[a->size - 2]
+# define B_SEC b->data[b->size - 2]
+# define A_LAST a->data[0]
+# define B_LAST b->data[0]
 
 typedef struct	s_stack
 {
@@ -36,8 +45,11 @@ typedef struct s_cmds
 **	CHECKER
 */
 
+int			checker(t_stack *a, t_stack *b);
 int			parse_args(char **args, t_stack **stack_a, int size);
 void		display(t_stack *a, t_stack *b);
+void		init_cmds(t_cmds cmds[11]);
+int			check_cmds(char *arg_cmd, t_cmds cmds[11]);
 int			exec_cmd(char *arg_cmd, t_stack *a, t_stack *b);
 
 /*
@@ -45,17 +57,14 @@ int			exec_cmd(char *arg_cmd, t_stack *a, t_stack *b);
 */
 
 void		push_swap(t_stack *a, t_stack *b);
-void		sort_5(t_stack *a, t_stack *b);
-void		op_and_print(char *cmd, t_stack *a, t_stack *b);
-void		init_cmds(t_cmds cmds[11]);
-int			check_cmds(char *arg_cmd, t_cmds cmds[11]);
 void		find_min_max(t_stack *stack, int *min_i, int *max_i);
 int			find_min(t_stack *stack);
 int			find_max(t_stack *stack);
 int			find_index(t_stack *stack, int nbr);
-void		sort_3(t_stack *a, t_stack *b);
-void		sort_lastnbr(t_stack *a, t_stack *b, int min, int max);
-void		check_order(t_stack *a, t_stack *b, int min, int max);
+int			find_median(t_stack *stack);
+void		sort_nbr(int *nbr, int len);
+void		push_on_b(t_stack *a, t_stack *b, int median);
+void		sort_5_or_less(t_stack *a, t_stack *b);
 
 /*
 **	SHARED
@@ -64,10 +73,9 @@ void		check_order(t_stack *a, t_stack *b, int min, int max);
 bool		check_args(char *arg);
 int			init_stack_a(char **args, t_stack **a, int size);
 int			init_stack_b(t_stack **b, int size);
-int			checker(t_stack *a, t_stack *b);
-int			is_sorted(t_stack *a, t_stack *b);
-int			b_is_sorted(t_stack *stack);
-int			a_is_sorted(t_stack *stack);
+bool		is_sorted(t_stack *a, t_stack *b);
+bool		b_is_sorted(t_stack *stack);
+bool		a_is_sorted(t_stack *stack);
 void		free_stack(t_stack **stack);
 void		free_allstacks(t_stack **a, t_stack **b);
 

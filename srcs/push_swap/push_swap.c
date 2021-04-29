@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 16:16:32 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/29 16:47:28 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/04/29 22:42:56 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ void	push_swap(t_stack *a, t_stack *b)
 			return (ft_sa(a, b , 1));
 		else if (a->size <= 5)
 			sort_5_or_less(a, b);
+		else if (a->size <= 100)
+			sort_100_or_less(a, b);
+		else if (a->size <= 500)
+			sort_500_or_less(a, b);
 	}
 }
 

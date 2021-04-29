@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:16:21 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/29 16:48:38 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/04/29 22:42:26 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,15 @@ int			exec_cmd(char *arg_cmd, t_stack *a, t_stack *b);
 */
 
 void		push_swap(t_stack *a, t_stack *b);
-void		find_min_max(t_stack *stack, int *min_i, int *max_i);
 int			find_min(t_stack *stack);
 int			find_max(t_stack *stack);
-int			find_index(t_stack *stack, int nbr);
 int			find_median(t_stack *stack);
-void		sort_nbr(int *nbr, int len);
-void		push_on_b(t_stack *a, t_stack *b, int median);
+int			find_decile(t_stack *stack, int decile);
 void		sort_5_or_less(t_stack *a, t_stack *b);
+void		sort_100_or_less(t_stack *a, t_stack *b);
+int			can_be_move(t_stack *stack, int nbr);
+int			find_min_pos(t_stack *stack);
+int			find_max_pos(t_stack *stack);
 
 /*
 **	SHARED

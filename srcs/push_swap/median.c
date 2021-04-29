@@ -6,13 +6,13 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 11:46:37 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/29 17:08:54 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/04/29 22:41:34 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_nbr(int *nbr, int len)
+static void		sort_nbr(int *nbr, int len)
 {
 	int		i;
 	int		tmp;
@@ -34,7 +34,7 @@ void	sort_nbr(int *nbr, int len)
 	}
 }
 
-int		find_median(t_stack *stack)
+int				find_median(t_stack *stack)
 {
 	int		*sorted;
 	int		median;
@@ -53,4 +53,23 @@ int		find_median(t_stack *stack)
 	median = sorted[stack->size / 2];
 	free(sorted);
 	return (median);
+}
+
+int			find_decile(t_stack *stack, int decile)
+{
+	int		*sorted;
+	int		res;
+	int		i;
+	sorted = (int*)malloc(sizeof(int) * (stack->size + 1));
+	if (!sorted)
+		return (-1);
+	i = 0;
+	while (i < stack->size)
+	{
+		sorted[i] = stack->data[i];
+		i++;
+	}
+	sort_nbr(sorted, stack->size);
+	res = sorted[(stack->size / 10) * decile];
+	free(sorted); 
 }

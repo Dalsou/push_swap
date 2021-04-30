@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:16:21 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/29 22:42:26 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/04/30 16:32:22 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,15 @@ void		push_swap(t_stack *a, t_stack *b);
 int			find_min(t_stack *stack);
 int			find_max(t_stack *stack);
 int			find_median(t_stack *stack);
-int			find_decile(t_stack *stack, int decile);
+int			find_fisrt_quart(t_stack *stack);
 void		sort_5_or_less(t_stack *a, t_stack *b);
 void		sort_100_or_less(t_stack *a, t_stack *b);
 int			can_be_move(t_stack *stack, int nbr);
 int			find_min_pos(t_stack *stack);
 int			find_max_pos(t_stack *stack);
+void		split_median_on_b(t_stack *a, t_stack *b, int median, int quart);
+void		split_median_on_b_2(t_stack *a, t_stack *b, int quart, int stop);
+void		sort_back(t_stack *a, t_stack *b, int limit);
 
 /*
 **	SHARED

@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 11:46:37 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/29 22:41:34 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/04/30 16:43:12 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ int				find_median(t_stack *stack)
 	return (median);
 }
 
-int			find_decile(t_stack *stack, int decile)
+int			find_fisrt_quart(t_stack *stack)
 {
 	int		*sorted;
-	int		res;
+	int		quart;
 	int		i;
+
 	sorted = (int*)malloc(sizeof(int) * (stack->size + 1));
 	if (!sorted)
 		return (-1);
@@ -70,6 +71,45 @@ int			find_decile(t_stack *stack, int decile)
 		i++;
 	}
 	sort_nbr(sorted, stack->size);
-	res = sorted[(stack->size / 10) * decile];
-	free(sorted); 
+	quart = sorted[stack->size / 4];
+	free(sorted);
+	return (quart);
+}
+
+void		split_median_on_b(t_stack *a, t_stack *b, int median, int quart)
+{
+	int		i;
+	int		size;
+
+	i = 0;
+	size = a->size;
+	while (i < size)
+	{
+		if (A_TOP < median)
+		{
+			ft_pb(a, b, 1);
+			if (B_TOP <= quart)
+				ft_rb(a, b, 1);
+		}
+		else
+			ft_ra(a, b, 1);
+		i++;
+	}
+}
+
+void		split_median_on_b_2(t_stack *a, t_stack *b, int quart, int stop)
+{
+	while (A_TOP > stop)
+	{
+		if (A_TOP < quart)
+		{
+			ft_pb(a, b, 1);
+			if (B_TOP == find_min(b))
+				ft_rb(a, b, 1);
+		}
+		else
+			ft_ra(a, b, 1);	
+	}
+	while (A_LAST >= quart)
+		ft_rra(a, b, 1);
 }

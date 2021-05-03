@@ -6,132 +6,82 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 17:21:04 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/30 16:42:13 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:01:41 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		find_smallest_rot(t_stack *a, t_stack *b)
+static void		backtrack(t_stack *a, t_stack *b, int limit)
 {
-	int		max_pos;
-	int		min_pos;
-
-	min_pos = find_min_pos(b);
-	if (min_pos > b->size / 2)
-		min_pos = b->size - min_pos;
-	max_pos = find_max_pos(b);
-	if (max_pos > b->size / 2)
-		max_pos = b->size - min_pos;
-	if (max_pos > min_pos)
+	while (A_TOP <= limit && A_TOP != find_min(a))
 	{
-		if (find_min_pos(b) > b->size / 2)
-			ft_rb(a, b, 1);
+		if (A_TOP == find_min_limit(a, find_min_pos(a))
+				&& (A_TOP < find_min(b) || b->size == 0))
+			ft_ra(a, b, 1);
 		else
-			ft_rrb(a, b, 1); 
+			ft_pb(a, b, 1);
 	}
-	else
-	{
-		if (find_max_pos(b) > b->size / 2)
-			ft_rb(a, b, 1);  
-		else
-			ft_rrb(a, b, 1); 
-	}
+	if (find_min(b) < find_min_limit(a, find_min_pos(a)))
+		sort_on_a(a, b);
 }
 
-static void		split_again(t_stack *a, t_stack *b)
+static void		backtrack_split(t_stack *a, t_stack *b, int limit)
 {
 	int		median;
+	int		count;
 	int		i;
-	int		size;
 
-	median = find_median(b);
-	i = 0;
-	size = b->size;
-	while (i < size)
+	count = 0;
+	median = find_median_limit(a, b, find_min_pos(a));
+	while (A_TOP <= limit && A_TOP != find_min(a))
 	{
-		if (B_TOP > median)
+		if (A_TOP >= median)
 		{
-			ft_pa(a, b, 1);
+			ft_ra(a, b, 1);
+			count++;
 		}
 		else
-			ft_rb(a, b, 1);
-		i++;
+			ft_pb(a, b, 1);	
 	}
+	i = 0;
+	while (i++ < count)
+		if (B_TOP != find_max(b))
+			ft_rrr(a, b, 1);
+		else
+			ft_rra(a, b, 1);
+	if (find_min(b) < find_min_limit(a, find_min_pos(a)))
+		sort_on_a(a, b);
 }
 
-void		sort_back(t_stack *a, t_stack *b, int limit)
+void			sort_on_a(t_stack *a, t_stack *b)
 {
-	int		pos;
-	int		count;
-	int		count_rot;
+	int		max;
 
-	pos = 0;
-	count = 0;
-	count_rot = 0;
-	while (b->size > 20)
-		split_again(a, b);
-	while (b->size > 0)
-	{
-		if ((pos = can_be_move(b, find_min(b))) > 0)
-		{
-			if (pos == 2)
-				ft_sb(a, b, 1);
-			if (pos == 3)
-				ft_rrb(a, b, 1);			
-			ft_pa(a, b, 1);
-			ft_ra(a, b, 1);
-		}
-		else if ((pos = can_be_move(b, find_max(b))) > 0)
-		{
-			if (pos == 2)
-				ft_sb(a, b, 1);
-			if (pos == 3)
-				ft_rrb(a, b, 1);			
-			ft_pa(a, b, 1);
-			count_rot++;
-		}
-		else 
-			find_smallest_rot(a, b);
-	}
-	while (count_rot > 0)
-	{
+	if (b->size == 0)
+		return;
+	max = find_max(b);
+	split_on_a(a, b, find_median(b, a));
+	while (A_TOP == find_min_limit(a, find_min_pos(a))
+			&& (A_TOP < find_min(b) || b->size == 0))
 		ft_ra(a, b, 1);
-		count_rot--;
-	}
-	if (limit == find_min(a))
-		while (A_TOP != limit)
-			ft_pb(a, b, 1);
-	else
-		while (A_TOP <= limit)
-			ft_pb(a, b, 1);
-	if (b->size > 0)
-		sort_back(a, b, limit);
+	sort_on_a(a, b);
+	if (get_size(a, max) >= 20)
+		backtrack_split(a, b, max);
+	backtrack(a, b, max);
 }
 
 void			sort_100_or_less(t_stack *a, t_stack *b)
 {
-	int		median;
-	int		first_quart;
-	int		last_quart;
-
-	median = find_median(a);
-	first_quart = find_fisrt_quart(a);
-	split_median_on_b(a, b, find_median(a), first_quart);
-	last_quart = find_median(a);
-	while (B_TOP > first_quart)
-		ft_pa(a, b, 1);
-	sort_back(a, b, first_quart);
-	while (A_TOP < median)
-		ft_pb(a, b, 1);
-	sort_back(a, b, median);
-	// // half sorted
-	split_median_on_b_2(a, b, last_quart, find_min(a));
-	sort_back(a, b, last_quart);
-	while (A_TOP != find_min(a))
-		ft_pb(a, b, 1);
-	sort_back(a, b, find_min(a));
-	// while (A_TOP != find_min(a))
-	// 	ft_ra(a, b, 1);
+	int		max;
+	
+	split_on_b(a, b, find_median(a, b));
+	sort_on_a(a, b);
+	max = find_max(a);
+	if (get_size(a, max) >= 20)
+	{
+		backtrack_split(a, b, max);
+		backtrack_split(a, b, max);
+	}
+	backtrack(a, b, max);
 }
-

@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 11:46:37 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/30 16:43:12 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:03:07 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@ static void		sort_nbr(int *nbr, int len)
 			nbr[i + 1] = tmp;
 			i = 0;
 		}
-		
 	}
 }
 
-int				find_median(t_stack *stack)
+int				find_median(t_stack *stack, t_stack *stack2)
 {
 	int		*sorted;
 	int		median;
@@ -42,7 +41,7 @@ int				find_median(t_stack *stack)
 
 	sorted = (int*)malloc(sizeof(int) * (stack->size + 1));
 	if (!sorted)
-		return (-1);
+		free_exit(&stack, &stack2, sorted);
 	i = 0;
 	while (i < stack->size)
 	{
@@ -55,61 +54,29 @@ int				find_median(t_stack *stack)
 	return (median);
 }
 
-int			find_fisrt_quart(t_stack *stack)
+int			find_median_limit(t_stack *stack, t_stack *stack2, int limit_pos)
 {
 	int		*sorted;
-	int		quart;
-	int		i;
-
-	sorted = (int*)malloc(sizeof(int) * (stack->size + 1));
-	if (!sorted)
-		return (-1);
-	i = 0;
-	while (i < stack->size)
-	{
-		sorted[i] = stack->data[i];
-		i++;
-	}
-	sort_nbr(sorted, stack->size);
-	quart = sorted[stack->size / 4];
-	free(sorted);
-	return (quart);
-}
-
-void		split_median_on_b(t_stack *a, t_stack *b, int median, int quart)
-{
-	int		i;
+	int		median;
 	int		size;
+	int		i;
+	int		j;
 
-	i = 0;
-	size = a->size;
-	while (i < size)
+	i = stack->size - 1;
+	size = 0;
+	while (i > limit_pos && i >= 0)
 	{
-		if (A_TOP < median)
-		{
-			ft_pb(a, b, 1);
-			if (B_TOP <= quart)
-				ft_rb(a, b, 1);
-		}
-		else
-			ft_ra(a, b, 1);
-		i++;
+		size++;
+		i--;
 	}
-}
-
-void		split_median_on_b_2(t_stack *a, t_stack *b, int quart, int stop)
-{
-	while (A_TOP > stop)
-	{
-		if (A_TOP < quart)
-		{
-			ft_pb(a, b, 1);
-			if (B_TOP == find_min(b))
-				ft_rb(a, b, 1);
-		}
-		else
-			ft_ra(a, b, 1);	
-	}
-	while (A_LAST >= quart)
-		ft_rra(a, b, 1);
+	if (!(sorted = (int*)malloc(sizeof(int) * (size + 1))))
+		free_exit(&stack, &stack2, sorted);
+	i = stack->size - 1;
+	j = 0;
+	while (i > limit_pos && i >= 0)
+		sorted[j++] = stack->data[i--];
+	sort_nbr(sorted, size);
+	median = sorted[size / 2];
+	free(sorted);
+	return (median);
 }

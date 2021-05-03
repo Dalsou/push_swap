@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:54:48 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/29 17:15:31 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/03 14:59:37 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,22 @@ int		find_min(t_stack *stack)
 
 	i = 0;
 	min = stack->data[0];
+	while (i < stack->size - 1)
+	{
+		if (min > stack->data[i + 1])
+			min = stack->data[i + 1];
+		i++;
+	}
+	return (min);
+}
+
+int		find_min_limit(t_stack *stack, int limit)
+{
+	int		min;
+	int		i;
+
+	i = limit + 1;
+	min = stack->data[limit + 1];
 	while (i < stack->size - 1)
 	{
 		if (min > stack->data[i + 1])

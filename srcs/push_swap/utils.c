@@ -6,22 +6,11 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 18:44:15 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/29 21:50:17 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/03 16:38:15 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int		can_be_move(t_stack *stack, int nbr)
-{
-	if (stack->data[stack->size - 1] == nbr)
-		return (1);
-	if (stack->data[stack->size - 2] == nbr)
-		return (2);
-	if (stack->data[0] == nbr)
-		return (3);
-	return (0);
-}
 
 int			find_min_pos(t_stack *stack)
 {
@@ -53,4 +42,46 @@ int			find_max_pos(t_stack *stack)
 		i++;
 	}
 	return (i);
+}
+
+int			find_index(t_stack *stack, int nbr)
+{
+	int		i;
+
+	i = 0;
+	while (i < stack->size)
+	{
+		if (stack->data[i] == nbr)
+			break;
+		i++;
+	}
+	return (i);
+}
+
+void		smallest_rot_b(t_stack *a, t_stack *b)
+{
+	int		max_pos;
+
+	max_pos = find_max_pos(b);
+	if (max_pos <= b->size / 2)
+		ft_rrb(a, b, 1);
+	else 
+		ft_rb(a, b, 1);
+}
+
+int			get_size(t_stack *stack, int limit)
+{
+	int		i;
+	int		count;
+
+	if (stack->size == 0)
+		return (0);
+	count = 0;
+	i = stack->size - 1;
+	while (stack->data[i] <= limit)
+	{
+		count++;
+		i--;
+	}
+	return (count);
 }

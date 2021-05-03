@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 15:04:08 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/20 17:43:56 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/03 18:02:43 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,12 @@ void	free_stack(t_stack **stack)
 		free(*stack);
 		*stack = NULL;
 	}
+}
+
+void	free_exit(t_stack **a, t_stack **b, int *nbrs)
+{
+	if (nbrs != NULL)
+		free(nbrs);
+	free_allstacks(a, b);
+	exit(-1);
 }

@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 17:21:04 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/03 18:01:41 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/04 10:55:32 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,13 @@ static void		backtrack_split(t_stack *a, t_stack *b, int limit)
 void			sort_on_a(t_stack *a, t_stack *b)
 {
 	int		max;
+	int		median;
 
 	if (b->size == 0)
 		return;
 	max = find_max(b);
-	split_on_a(a, b, find_median(b, a));
+	median = find_median(b, a);
+	split_on_a(a, b, median);
 	while (A_TOP == find_min_limit(a, find_min_pos(a))
 			&& (A_TOP < find_min(b) || b->size == 0))
 		ft_ra(a, b, 1);

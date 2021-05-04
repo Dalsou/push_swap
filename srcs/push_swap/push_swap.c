@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 16:16:32 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/30 14:03:09 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/04 12:56:14 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	push_swap(t_stack *a, t_stack *b)
 		else if (a->size <= 5)
 			sort_5_or_less(a, b);
 		else if (a->size <= 500)
-			sort_100_or_less(a, b);
+			sort_500_or_less(a, b);
 	}
 }
 
@@ -38,7 +38,7 @@ int		main(int argc, char **argv)
 			init_stack_b(&b, argc - 1) == -1)
 	{
 		free_allstacks(&a, &b);
-		ft_putstr_fd("Error_push_swap\n", 2);
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	if (a->size > 1)

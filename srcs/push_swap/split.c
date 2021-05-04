@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 10:29:35 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/04 10:54:08 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/04 12:54:58 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void			split_on_a(t_stack *a, t_stack *b, int median)
 
 	i = 0;
 	size = b->size;
-	while (i++ < size)
+	while (i < size)
 	{
-		if (b->size < 13)
+		if (size < 25)
 			push_max_on_a(a, b);
 		else
 		{
@@ -54,6 +54,7 @@ void			split_on_a(t_stack *a, t_stack *b, int median)
 					ft_rb(a, b, 1);
 			}
 		}
+		i++;
 	}
 }
 

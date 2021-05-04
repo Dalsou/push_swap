@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:16:21 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/03 18:03:24 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/04 11:04:09 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int			find_max(t_stack *stack);
 int			find_median(t_stack *stack, t_stack *stack2);
 int			find_median_limit(t_stack *stack, t_stack *stack2, int limit_pos);
 void		sort_5_or_less(t_stack *a, t_stack *b);
-void		sort_100_or_less(t_stack *a, t_stack *b);
+void		sort_500_or_less(t_stack *a, t_stack *b);
 int			find_min_pos(t_stack *stack);
 int			find_max_pos(t_stack *stack);
 int			find_index(t_stack *stack, int nbr);

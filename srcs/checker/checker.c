@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 22:42:37 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/29 16:46:17 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/04 12:56:56 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		checker(t_stack *a, t_stack *b)
 			ft_strdel(&cmd);
 			return (-1);
 		}
-		display(a, b);
 		ft_strdel(&cmd);
 	}
 	return (0);
@@ -46,9 +45,10 @@ int		main(int argc, char **argv)
 				checker(a, b) == -1)
 	{
 		free_allstacks(&a, &b);
-		ft_putstr_fd("Error_checker\n", 2);
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
+	display(a, b);
 	if (is_sorted(a, b) == FALSE)
 		ft_putstr_fd("KO\n", 1);
 	else

@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 17:21:04 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/04 12:55:26 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/04 20:23:01 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,10 @@ void			sort_500_or_less(t_stack *a, t_stack *b)
 	split_on_b(a, b, find_median(a, b));
 	sort_on_a(a, b);
 	max = find_max(a);
-	// if (get_size(a, max) >= 20)
-	// {
-	// 	backtrack_split(a, b, max);
-	// 	backtrack_split(a, b, max);
-	// }
-	// backtrack(a, b, max);
+	if (get_size(a, max) >= 20)
+	{
+		backtrack_split(a, b, max);
+		backtrack_split(a, b, max);
+	}
+	backtrack(a, b, max);
 }

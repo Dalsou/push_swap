@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 18:44:15 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/04 11:48:19 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/04 20:29:42 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ void		smallest_rot_b(t_stack *a, t_stack *b)
 	int		max_pos;
 
 	max_pos = find_max_pos(b);
-	if (max_pos > b->size / 2)
+	if (b->size < 3)
+		ft_sb(a, b, 1);
+	else if (max_pos > b->size / 2)
 		ft_rb(a, b, 1);
 	else 
 		ft_rrb(a, b, 1);

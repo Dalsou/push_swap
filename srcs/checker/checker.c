@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 22:42:37 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/04 12:56:56 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/04 20:23:34 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
-	display(a, b);
+	// display(a, b);
 	if (is_sorted(a, b) == FALSE)
 		ft_putstr_fd("KO\n", 1);
 	else

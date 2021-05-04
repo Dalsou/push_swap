@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 10:29:35 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/04 12:54:58 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/04 20:32:01 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void			split_on_a(t_stack *a, t_stack *b, int median)
 	size = b->size;
 	while (i < size)
 	{
-		if (size < 25)
+		if (size < 15)
 			push_max_on_a(a, b);
 		else
 		{

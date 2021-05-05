@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 18:44:15 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/04 20:29:42 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/05 11:16:15 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,6 @@ int			find_max_pos(t_stack *stack)
 	return (i);
 }
 
-int			find_index(t_stack *stack, int nbr)
-{
-	int		i;
-
-	i = 0;
-	while (i < stack->size)
-	{
-		if (stack->data[i] == nbr)
-			break;
-		i++;
-	}
-	return (i);
-}
-
 void		smallest_rot_b(t_stack *a, t_stack *b)
 {
 	int		max_pos;
@@ -71,7 +57,7 @@ void		smallest_rot_b(t_stack *a, t_stack *b)
 		ft_rrb(a, b, 1);
 }
 
-int			get_size(t_stack *stack, int limit)
+int			max_pos_size(t_stack *stack, int max)
 {
 	int		i;
 	int		count;
@@ -80,7 +66,7 @@ int			get_size(t_stack *stack, int limit)
 		return (0);
 	count = 0;
 	i = stack->size - 1;
-	while (stack->data[i] <= limit)
+	while (stack->data[i] <= max)
 	{
 		count++;
 		i--;

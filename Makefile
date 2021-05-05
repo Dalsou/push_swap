@@ -6,7 +6,7 @@
 #    By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/15 15:07:02 by afoulqui          #+#    #+#              #
-#    Updated: 2021/05/03 10:30:13 by afoulqui         ###   ########.fr        #
+#    Updated: 2021/05/05 11:50:47 by afoulqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC_CHECKER =	checker.c \
 
 SRC_PS		=	push_swap.c \
 				sort_5.c \
-				sort_100.c \
+				sort_500.c \
 				find_min_max.c \
 				median.c \
 				split.c \

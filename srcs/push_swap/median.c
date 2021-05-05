@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 11:46:37 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/03 18:03:07 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/05 09:56:37 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int				find_median(t_stack *stack, t_stack *stack2)
 	return (median);
 }
 
-int			find_median_limit(t_stack *stack, t_stack *stack2, int limit_pos)
+int			find_median_limit(t_stack *stack, t_stack *stack2)
 {
 	int		*sorted;
 	int		median;
@@ -64,7 +64,7 @@ int			find_median_limit(t_stack *stack, t_stack *stack2, int limit_pos)
 
 	i = stack->size - 1;
 	size = 0;
-	while (i > limit_pos && i >= 0)
+	while (i > find_min_pos(stack) && i >= 0)
 	{
 		size++;
 		i--;
@@ -73,7 +73,7 @@ int			find_median_limit(t_stack *stack, t_stack *stack2, int limit_pos)
 		free_exit(&stack, &stack2, sorted);
 	i = stack->size - 1;
 	j = 0;
-	while (i > limit_pos && i >= 0)
+	while (i > find_min_pos(stack) && i >= 0)
 		sorted[j++] = stack->data[i--];
 	sort_nbr(sorted, size);
 	median = sorted[size / 2];

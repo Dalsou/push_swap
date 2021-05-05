@@ -6,63 +6,60 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 10:29:35 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/04 20:32:01 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/05/05 11:22:17 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		push_max_on_a(t_stack *a, t_stack *b)
+static void		split_on_a_little(t_stack *a, t_stack *b)
 {
 	if (B_TOP == find_max(b))
 		ft_pa(a, b, 1);
-	else
+	else if (B_TOP == find_min(b) && B_TOP < find_min_limit(a))
 	{
-		if (B_TOP == find_min(b) && B_TOP < find_min_limit(a, find_min_pos(a)))
-		{
-			ft_pa(a, b, 1);
-			ft_ra(a, b, 1);
-		}
-		else
-			smallest_rot_b(a, b);
+		ft_pa(a, b, 1);
+		ft_ra(a, b, 1);
 	}
+	else
+		smallest_rot_b(a, b);
 }
 
-void			split_on_a(t_stack *a, t_stack *b, int median)
+void			split_on_a(t_stack *a, t_stack *b)
 {
 	int		i;
 	int		size;
+	int		median;
 
 	i = 0;
 	size = b->size;
-	while (i < size)
+	median = find_median(b, a);
+	while (i++ < size)
 	{
-		if (size < 15)
-			push_max_on_a(a, b);
+		if (size < 20)
+			split_on_a_little(a, b);
 		else
 		{
 			if (B_TOP >= median)
 				ft_pa(a, b, 1);
-			else
+			else if (B_TOP == find_min(b))
 			{
-				if (B_TOP == find_min(b))
-				{
-					ft_pa(a, b, 1);
-					ft_ra(a, b, 1);
-				}
-				else
-					ft_rb(a, b, 1);
+				ft_pa(a, b, 1);
+				ft_ra(a, b, 1);
 			}
+			else
+				ft_rb(a, b, 1);
 		}
-		i++;
 	}
 }
 
-void			split_on_b(t_stack *a, t_stack *b, int median)
+void			split_on_b(t_stack *a, t_stack *b)
 {
+	int		median;
 	int		size;
 	int		i;
 
+	median = find_median(a, b);
 	size = a->size;
 	i = 0;
 	while (i < size)

@@ -6,7 +6,7 @@
 #    By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/15 15:07:02 by afoulqui          #+#    #+#              #
-#    Updated: 2021/05/05 11:50:47 by afoulqui         ###   ########.fr        #
+#    Updated: 2021/06/15 15:51:10 by afoulqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,9 @@
 #     VARIABLES     #
 # ----------------- #
 
-CHECKER		=	checker
+BONUS		=	checker
 
-PUSH_SWAP	=	push_swap
-
-NAME		=	$(CHECKER) $(PUSH_SWAP)
+NAME		=	push_swap
 
 LIB_DIR		=	libft
 LIBFT		=	$(LIB_DIR)/libft.a
@@ -81,21 +79,22 @@ $(OBJ_DIR)%.o:%.c $(HEADERS)
 				@mkdir -p $(OBJ_DIR)
 				@echo "\033[32mCompilation ... $(foreach file, $< , $(notdir $<))"
 				@$(CC) $(CFLAG) $(IFLAG) -o $@ -c $<
-				
 
-$(CHECKER):	install $(C_OBJ)
-				@$(CC) $(CFLAG) $(C_OBJ) $(IFLAG) $(LFLAG) -o $@
-				@echo "\n\t\033[36;1m*.............................*"
-				@echo "\n\t*    Compilation $(CHECKER)    *\t   \033[32;1m--------->>> \033[4;5mComplete\033[0m"
-				@echo "\n\t\033[036;1m*.............................*\033[0m\n"
-
-$(PUSH_SWAP):	install $(PS_OBJ)
+$(NAME):	install $(PS_OBJ)
 					@$(CC) $(CFLAG) $(PS_OBJ) $(IFLAG) $(LFLAG) -o $@
 					@echo "\n\t\033[36;1m*.............................*"
-					@echo "\n\t*    Compilation $(PUSH_SWAP)    *\t   \033[32;1m--------->>> \033[4;5mComplete\033[0m"
-					@echo "\n\t\033[036;1m*.............................*\033[0m\n"
+					@echo "\n\t*    Compilation $(NAME)    *\t   \033[32;1m--------->>> \033[4;5mComplete\033[0m"
+					@echo "\n\t\033[036;1m*.............................*\033[0m\n"				
 
-all	:		$(CHECKER) $(PUSH_SWAP)
+$(BONUS):	install $(C_OBJ)
+				@$(CC) $(CFLAG) $(C_OBJ) $(IFLAG) $(LFLAG) -o $@
+				@echo "\n\t\033[36;1m*.............................*"
+				@echo "\n\t*    Compilation $(BONUS)    *\t   \033[32;1m--------->>> \033[4;5mComplete\033[0m"
+				@echo "\n\t\033[036;1m*.............................*\033[0m\n"
+
+all	:		$(NAME)
+
+bonus :		$(NAME) $(BONUS)
 
 install :	
 				@make -C $(LIB_DIR)
@@ -112,18 +111,16 @@ RM		=	rm -rf
 clean:	
 			@$(RM) $(OBJ_DIR)
 			@echo "\033[36;1m $(NAME) ------>>  clean\033[0m\n"
+			@echo "\033[36;1m $(BONUS) ------>>  clean\033[0m\n"
 
 fclean:		clean
-			@$(RM) $(NAME)
-			#@make fclean -C $(LIB_DIR)
+			@$(RM) $(NAME) $(BONUS)
+			@make fclean -C $(LIB_DIR)
 			@echo "\033[36;1m $(NAME) ------>>  fclean\033[0m\n"
+			@echo "\033[36;1m $(BONUS) ------>>  fclean\033[0m\n"
 
 re:			fclean all
 
-run:		all
-				./$(NAME)
+re-bonus:	fclean bonus
 
-rerun:		re
-				./${NAME}
-
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re re-bonus

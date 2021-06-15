@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 15:40:41 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/07/09 18:32:12 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 12:39:47 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_freesplit(char **split)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (split[i])

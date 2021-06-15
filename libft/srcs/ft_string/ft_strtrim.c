@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afoulqui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 10:38:13 by afoulqui          #+#    #+#             */
-/*   Updated: 2019/10/29 14:45:16 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:11:27 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	find_set(char c, char const *set)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (set[i])
@@ -26,7 +26,7 @@ static int	find_set(char c, char const *set)
 	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;

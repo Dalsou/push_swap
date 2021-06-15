@@ -6,21 +6,21 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 16:33:26 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/22 11:15:56 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 14:43:27 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		check_cmds(char *arg_cmd, t_cmds cmds[11])
+int	check_cmds(char *arg_cmd, t_cmds cmds[11])
 {
 	int		i;
-	
+
 	i = 0;
 	while (i < 11 && arg_cmd)
 	{
-		if ((!ft_strncmp(arg_cmd, cmds[i].cmd, ft_strlen(arg_cmd))) &&
-			ft_strlen(arg_cmd) == ft_strlen(cmds[i].cmd))
+		if ((!ft_strncmp(arg_cmd, cmds[i].cmd, ft_strlen(arg_cmd)))
+			&& ft_strlen(arg_cmd) == ft_strlen(cmds[i].cmd))
 			return (i);
 		i++;
 	}
@@ -53,14 +53,15 @@ void	init_cmds(t_cmds cmds[11])
 	cmds[10].fct = &ft_rrr;
 }
 
-int		exec_cmd(char *arg_cmd, t_stack *a, t_stack *b)
+int	exec_cmd(char *arg_cmd, t_stack *a, t_stack *b)
 {
 	t_cmds	cmds[11];
 	int		i;
 
 	init_cmds(cmds);
-	if ((i = check_cmds(arg_cmd, cmds)) == -1)
+	i = check_cmds(arg_cmd, cmds);
+	if (i == -1)
 		return (-1);
-	cmds[i].fct(a,b, 0);
+	cmds[i].fct(a, b, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 17:26:25 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/22 11:19:30 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:11:23 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_pa(t_stack *a, t_stack *b, int print)
 {
 	if (b->size < 1)
-		return;
+		return ;
 	a->size++;
 	a->data[a->size - 1] = b->data[b->size - 1];
 	b->size--;
@@ -26,7 +26,7 @@ void	ft_pa(t_stack *a, t_stack *b, int print)
 void	ft_pb(t_stack *a, t_stack *b, int print)
 {
 	if (a->size < 1)
-		return;
+		return ;
 	b->size++;
 	b->data[b->size - 1] = a->data[a->size - 1];
 	a->size--;

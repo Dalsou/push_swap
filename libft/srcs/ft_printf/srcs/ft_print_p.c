@@ -6,13 +6,13 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 11:32:58 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/03/11 12:52:50 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:18:29 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_print_p(va_list *args, t_flags *flags)
+int	ft_print_p(va_list *args, t_flags *flags)
 {
 	long	nb;
 	long	len;

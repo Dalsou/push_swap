@@ -6,13 +6,13 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 10:51:31 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/07/09 15:39:47 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:20:20 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_strlen_printf(const char *s)
+int	ft_strlen_printf(const char *s)
 {
 	size_t		len;
 

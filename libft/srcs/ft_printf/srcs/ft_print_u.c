@@ -6,13 +6,13 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:44:31 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/03/11 12:53:34 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:19:38 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_get_zero_u(t_flags *flags, int *len, unsigned long int nb)
+int	ft_get_zero_u(t_flags *flags, int *len, unsigned long int nb)
 {
 	int					zero;
 
@@ -27,7 +27,7 @@ int		ft_get_zero_u(t_flags *flags, int *len, unsigned long int nb)
 	return (zero);
 }
 
-int		ft_find_ulen(unsigned long int nb)
+int	ft_find_ulen(unsigned long int nb)
 {
 	int					len;
 
@@ -53,7 +53,7 @@ void	ft_putnbr_u(unsigned long int nb)
 		ft_putchar(nb + '0');
 }
 
-int		ft_print_u(va_list *args, t_flags *flags)
+int	ft_print_u(va_list *args, t_flags *flags)
 {
 	unsigned long int	nb;
 	int					len;

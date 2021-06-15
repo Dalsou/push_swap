@@ -6,16 +6,16 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 22:42:37 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/04 20:23:34 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:06:25 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		checker(t_stack *a, t_stack *b)
+int	checker(t_stack *a, t_stack *b)
 {
 	char	*cmd;
-	int 	ret; 
+	int		ret;
 
 	ret = 1;
 	while (ret == 1)
@@ -31,24 +31,24 @@ int		checker(t_stack *a, t_stack *b)
 	return (0);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_stack		*a;
-	t_stack 	*b;
+	t_stack	*a;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;
 	if (argc < 2)
 		return (0);
-	if ((parse_args(&argv[1], &a, (argc - 1)) == -1) ||
-			init_stack_b(&b, argc - 1) == -1 ||
-				checker(a, b) == -1)
+	if ((parse_args(&argv[1], &a, (argc - 1)) == -1)
+		|| init_stack_b(&b, argc - 1) == -1
+		|| checker(a, b) == -1)
 	{
 		free_allstacks(&a, &b);
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
-	// display(a, b);
+	display(a, b);
 	if (is_sorted(a, b) == FALSE)
 		ft_putstr_fd("KO\n", 1);
 	else

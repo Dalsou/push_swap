@@ -6,15 +6,15 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 14:11:38 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/29 16:48:04 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 14:42:21 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool		b_is_sorted(t_stack *stack)
+t_bool	b_is_sorted(t_stack *stack)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (i < stack->size - 1)
@@ -26,9 +26,9 @@ bool		b_is_sorted(t_stack *stack)
 	return (TRUE);
 }
 
-bool		a_is_sorted(t_stack *stack)
+t_bool	a_is_sorted(t_stack *stack)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (i < stack->size - 1)
@@ -40,9 +40,9 @@ bool		a_is_sorted(t_stack *stack)
 	return (TRUE);
 }
 
-bool		is_sorted(t_stack *a, t_stack *b)
+t_bool	is_sorted(t_stack *a, t_stack *b)
 {
-	int		i;
+	int	i;
 
 	if (b->size != 0)
 		return (-1);

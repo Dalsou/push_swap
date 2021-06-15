@@ -6,13 +6,13 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 11:32:58 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/03/11 12:52:45 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:25:09 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_find_intlen(long nb)
+int	ft_find_intlen(long nb)
 {
 	int		len;
 
@@ -48,7 +48,7 @@ void	ft_putnbr(long nbr)
 		ft_putchar(nbr + '0');
 }
 
-int		ft_get_space(t_flags *flags, int len)
+int	ft_get_space(t_flags *flags, int len)
 {
 	int		space;
 
@@ -58,7 +58,7 @@ int		ft_get_space(t_flags *flags, int len)
 	return (space);
 }
 
-int		ft_get_zero(t_flags *flags, int *len, long nb)
+int	ft_get_zero(t_flags *flags, int *len, long nb)
 {
 	int		zero;
 
@@ -78,7 +78,7 @@ int		ft_get_zero(t_flags *flags, int *len, long nb)
 	return (zero);
 }
 
-int		ft_print_d(va_list *args, t_flags *flags)
+int	ft_print_d(va_list *args, t_flags *flags)
 {
 	long	nb;
 	int		len;
@@ -96,7 +96,10 @@ int		ft_print_d(va_list *args, t_flags *flags)
 		ft_putchar('-');
 		nb *= -1;
 	}
-	ft_putnchar('0', (flags->zero) ? space : zero);
+	if (flags->zero)
+		ft_putnchar('0', space);
+	else
+		ft_putnchar('0', zero);
 	if (len > 0)
 		ft_putnbr(nb);
 	if (flags->left == 1)

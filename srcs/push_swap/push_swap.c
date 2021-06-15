@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 16:16:32 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/04 12:56:14 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:20:20 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	push_swap(t_stack *a, t_stack *b)
 	if (is_sorted(a, b) == FALSE)
 	{
 		if (a->size == 2)
-			return (ft_sa(a, b , 1));
+			return (ft_sa(a, b, 1));
 		else if (a->size <= 5)
 			sort_5_or_less(a, b);
 		else if (a->size <= 500)
@@ -25,17 +25,17 @@ void	push_swap(t_stack *a, t_stack *b)
 	}
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_stack		*a;
-	t_stack 	*b;
+	t_stack	*a;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;
 	if (argc < 2)
 		return (0);
-	if ((parse_args(&argv[1], &a, (argc - 1)) == -1) ||
-			init_stack_b(&b, argc - 1) == -1)
+	if ((parse_args(&argv[1], &a, (argc - 1)) == -1)
+		|| init_stack_b(&b, argc - 1) == -1)
 	{
 		free_allstacks(&a, &b);
 		ft_putstr_fd("Error\n", 2);

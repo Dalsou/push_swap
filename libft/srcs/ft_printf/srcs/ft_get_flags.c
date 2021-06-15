@@ -6,13 +6,13 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 09:29:20 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/03/11 12:52:19 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:26:29 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_flag_width(char *str, t_flags *flags, va_list *list)
+void	ft_flag_width(char *str, t_flags *flags, va_list *list)
 {
 	int		i;
 
@@ -35,7 +35,7 @@ void		ft_flag_width(char *str, t_flags *flags, va_list *list)
 	}
 }
 
-int			ft_flag_zero(char *str)
+int	ft_flag_zero(char *str)
 {
 	int		i;
 
@@ -53,7 +53,7 @@ int			ft_flag_zero(char *str)
 	return (0);
 }
 
-void		ft_reset_flags(t_flags *flags)
+void	ft_reset_flags(t_flags *flags)
 {
 	flags->precision = 0;
 	flags->left = 0;
@@ -63,7 +63,7 @@ void		ft_reset_flags(t_flags *flags)
 	flags->nb_precision = 0;
 }
 
-void		ft_init_flags(char *str, t_flags *flags, va_list *list)
+void	ft_init_flags(char *str, t_flags *flags, va_list *list)
 {
 	int		i;
 
@@ -87,7 +87,7 @@ void		ft_init_flags(char *str, t_flags *flags, va_list *list)
 		}
 		i++;
 	}
-	if (flags->left == 1 ||
-		(ft_find_end(str, "diuxX") != -1 && flags->precision == 1))
+	if (flags->left == 1 || (ft_find_end(str, "diuxX") != -1
+			&& flags->precision == 1))
 		flags->zero = 0;
 }

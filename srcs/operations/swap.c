@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 17:12:27 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/22 11:23:21 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:12:43 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_sa(t_stack *a, t_stack *b, int print)
 
 	(void)b;
 	if (a->size < 2)
-		return;
+		return ;
 	tmp = a->data[a->size - 1];
 	a->data[a->size - 1] = a->data[a->size - 2];
 	a->data[a->size - 2] = tmp;
@@ -32,7 +32,7 @@ void	ft_sb(t_stack *a, t_stack *b, int print)
 
 	(void)a;
 	if (b->size < 2)
-		return;
+		return ;
 	tmp = b->data[b->size - 1];
 	b->data[b->size - 1] = b->data[b->size - 2];
 	b->data[b->size - 2] = tmp;

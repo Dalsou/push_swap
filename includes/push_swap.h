@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:16:21 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/05 11:15:35 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 14:41:43 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,10 @@
 
 # include "libft.h"
 
-# define A a->data
-# define B b->data
-# define A_TOP a->data[a->size - 1]
-# define B_TOP b->data[b->size - 1]
-# define A_SEC a->data[a->size - 2]
-# define B_SEC b->data[b->size - 2]
-# define A_LAST a->data[0]
-# define B_LAST b->data[0]
-
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int			*data;
-	int 		size;
+	int			size;
 }				t_stack;
 
 typedef struct s_cmds
@@ -76,12 +67,12 @@ void		sort_on_a(t_stack *a, t_stack *b);
 **	SHARED
 */
 
-bool		check_args(char *arg);
+t_bool		check_args(char *arg);
 int			init_stack_a(char **args, t_stack **a, int size);
 int			init_stack_b(t_stack **b, int size);
-bool		is_sorted(t_stack *a, t_stack *b);
-bool		b_is_sorted(t_stack *stack);
-bool		a_is_sorted(t_stack *stack);
+t_bool		is_sorted(t_stack *a, t_stack *b);
+t_bool		b_is_sorted(t_stack *stack);
+t_bool		a_is_sorted(t_stack *stack);
 void		free_stack(t_stack **stack);
 void		free_allstacks(t_stack **a, t_stack **b);
 void		free_exit(t_stack **a, t_stack **b, int *nbrs);

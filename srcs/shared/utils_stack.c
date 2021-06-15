@@ -6,17 +6,17 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 15:04:08 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/03 18:02:43 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:45:08 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		init_stack_b(t_stack **b, int size)
+int	init_stack_b(t_stack **b, int size)
 {
-	if (!(*b = (t_stack*)malloc(sizeof(t_stack))))
-		return (-1);
-	if (!((*b)->data = (int*)malloc(sizeof(int) * (size))))
+	*b = (t_stack *)malloc(sizeof(t_stack));
+	(*b)->data = (int *)malloc(sizeof(int) * (size));
+	if (!(*b) || !((*b)->data))
 		return (-1);
 	(*b)->size = 0;
 	return (0);

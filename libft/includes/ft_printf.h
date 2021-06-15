@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 11:32:58 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/07/09 15:40:11 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:48:37 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@
 
 # define TYPE_FIELD "cspdiuxX%"
 
-typedef struct	s_flags
+typedef struct s_flags
 {
-	int precision;
-	int left;
-	int zero;
-	int width;
+	int	precision;
+	int	left;
+	int	zero;
+	int	width;
 	int	nb_width;
-	int nb_precision;
+	int	nb_precision;
 }				t_flags;
 
 int				ft_printf(const char *src, ...);
@@ -63,7 +63,7 @@ int				ft_find_lenbase(long nb, int base);
 void			ft_putnbr_base(unsigned long int nb, char *base);
 int				ft_get_zero_u(t_flags *flags, int *len, unsigned long int nb);
 int				ft_convert_hex(unsigned long int nb, char *base,
-				t_flags *flags);
+					t_flags *flags);
 int				ft_print_u(va_list *args, t_flags *flags);
 int				ft_print_x(va_list *args, t_flags *flags);
 int				ft_print_x2(va_list *args, t_flags *flags);

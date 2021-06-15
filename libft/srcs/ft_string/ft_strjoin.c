@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afoulqui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 10:23:20 by afoulqui          #+#    #+#             */
-/*   Updated: 2019/10/16 11:21:29 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 12:41:52 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	*fill_new(char *dst, char const *s2, unsigned int i, char *tmp)
 	return (fill_new(dst, s2, i, (char *)s2));
 }
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char			*new;
 	size_t			size;

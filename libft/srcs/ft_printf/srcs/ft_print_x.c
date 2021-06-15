@@ -6,13 +6,13 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 11:32:58 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/03/11 12:53:14 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:20:02 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_find_lenbase(long nb, int base)
+int	ft_find_lenbase(long nb, int base)
 {
 	int					len;
 
@@ -41,7 +41,7 @@ void	ft_putnbr_base(unsigned long int nb, char *base)
 		ft_putchar(base[nb]);
 }
 
-int		ft_convert_hex(unsigned long int nb, char *base, t_flags *flags)
+int	ft_convert_hex(unsigned long int nb, char *base, t_flags *flags)
 {
 	int					len;
 	int					zero;
@@ -67,7 +67,7 @@ int		ft_convert_hex(unsigned long int nb, char *base, t_flags *flags)
 	return (len + zero + space);
 }
 
-int		ft_print_x(va_list *args, t_flags *flags)
+int	ft_print_x(va_list *args, t_flags *flags)
 {
 	unsigned long int	nb;
 
@@ -75,7 +75,7 @@ int		ft_print_x(va_list *args, t_flags *flags)
 	return (ft_convert_hex(nb, "0123456789abcdef", flags));
 }
 
-int		ft_print_x2(va_list *args, t_flags *flags)
+int	ft_print_x2(va_list *args, t_flags *flags)
 {
 	unsigned long int	nb;
 

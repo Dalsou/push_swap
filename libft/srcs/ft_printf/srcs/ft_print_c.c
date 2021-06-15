@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 11:32:58 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/03/11 12:52:39 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:17:51 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	ft_putnchar(char c, int n)
 	}
 }
 
-int		ft_print_c(va_list *args, t_flags *flags)
+int	ft_print_c(va_list *args, t_flags *flags)
 {
-	int c;
-	int len;
+	int	c;
+	int	len;
 
 	c = va_arg(*args, int);
 	len = 0;

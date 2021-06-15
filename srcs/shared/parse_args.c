@@ -6,16 +6,16 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 16:26:02 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/20 15:37:42 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 14:42:44 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			init_stack_a(char **args, t_stack **a, int size)
+int	init_stack_a(char **args, t_stack **a, int size)
 {
-	int		i;
-	int		nbr;
+	int	i;
+	int	nbr;
 
 	i = size - 1;
 	while (i >= 0)
@@ -31,9 +31,9 @@ int			init_stack_a(char **args, t_stack **a, int size)
 	return (0);
 }
 
-bool			check_args(char *arg)
+t_bool	check_args(char *arg)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (arg[i])
@@ -47,14 +47,14 @@ bool			check_args(char *arg)
 	return (TRUE);
 }
 
-int			parse_args(char **args, t_stack **a, int size)
+int	parse_args(char **args, t_stack **a, int size)
 {
-	int i;
+	int	i;
 	int	j;
 
-	if (!(*a = (t_stack*)malloc(sizeof(t_stack))))
-		return (-1);
-	if (!((*a)->data = (int*)malloc(sizeof(int) * (size))))
+	*a = (t_stack *)malloc(sizeof(t_stack));
+	(*a)->data = (int *)malloc(sizeof(int) * (size));
+	if (!(*a) || !((*a)->data))
 		return (-1);
 	i = 0;
 	while (args[i])

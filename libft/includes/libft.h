@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 16:26:01 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/15 22:23:52 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:52:18 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
 
-typedef int bool;
-#define TRUE 1
-#define FALSE 0
+typedef int	t_bool;
+# define TRUE	1
+# define FALSE	0
 
 float			ft_atof(const char *str);
 int				ft_atoi(const char *str);
@@ -48,7 +48,7 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-				void (*del)(void *));
+					void (*del)(void *));
 t_list			*ft_lstnew(void *content);
 int				ft_lstsize(t_list **lst);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);

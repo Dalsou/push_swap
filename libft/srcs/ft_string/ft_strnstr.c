@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afoulqui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:04:43 by afoulqui          #+#    #+#             */
-/*   Updated: 2019/10/11 14:52:19 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 12:40:22 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *hstk, const char *ndle, size_t len)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	if (!*ndle)
 		return ((char *)hstk);

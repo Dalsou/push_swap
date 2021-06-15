@@ -6,13 +6,13 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 14:39:01 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/03/11 12:52:27 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:17:12 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_find_index(char *str, char element)
+int	ft_find_index(char *str, char element)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ int		ft_find_index(char *str, char element)
 	return (-1);
 }
 
-int		ft_find_end(char *s1, char *s2)
+int	ft_find_end(char *s1, char *s2)
 {
 	int		i;
 	int		j;
@@ -46,7 +46,7 @@ int		ft_find_end(char *s1, char *s2)
 	return (-1);
 }
 
-int		ft_find_nb(char *str, va_list *list)
+int	ft_find_nb(char *str, va_list *list)
 {
 	int		nb;
 	int		i;

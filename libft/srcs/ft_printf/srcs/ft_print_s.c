@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 10:44:31 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/03/11 12:53:02 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:19:15 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_putnstr(char *str, int n)
 	}
 }
 
-int		ft_find_strlen(char *str, t_flags *flags)
+int	ft_find_strlen(char *str, t_flags *flags)
 {
 	int		len;
 
@@ -46,7 +46,7 @@ int		ft_find_strlen(char *str, t_flags *flags)
 	return (len);
 }
 
-int		ft_print_s(va_list *args, t_flags *flags)
+int	ft_print_s(va_list *args, t_flags *flags)
 {
 	char	*str;
 	int		width;

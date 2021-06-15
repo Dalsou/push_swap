@@ -6,21 +6,21 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 13:34:17 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/04/29 16:59:24 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:23:10 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		push_one_on_b(t_stack *a, t_stack *b, int min, int max)
+static void	push_one_on_b(t_stack *a, t_stack *b, int min, int max)
 {
-	if (b->size == 1 && B_TOP == min)
+	if (b->size == 1 && b->data[b->size - 1] == min)
 		min = find_min(a);
-	if (A_TOP == min || A_TOP == max)
-		return (ft_pb(a, b , 1));
-	else if (A_LAST == min || A_LAST == max)
+	if (a->data[a->size - 1] == min || a->data[a->size - 1] == max)
+		return (ft_pb(a, b, 1));
+	else if (a->data[0] == min || a->data[0] == max)
 		ft_rra(a, b, 1);
-	else if (A_SEC == min|| A_SEC == max)
+	else if (a->data[a->size - 2] == min || a->data[a->size - 2] == max)
 		ft_sa(a, b, 1);
 	else
 	{
@@ -30,15 +30,16 @@ static void		push_one_on_b(t_stack *a, t_stack *b, int min, int max)
 	ft_pb(a, b, 1);
 }
 
-static void		sort_3(t_stack *a, t_stack *b)
+static void	sort_3(t_stack *a, t_stack *b)
 {
-	if (A_TOP == find_max(a) && A_SEC == find_min(a))
+	if (a->data[a->size - 1] == find_max(a)
+		&& a->data[a->size - 2] == find_min(a))
 		ft_ra(a, b, 1);
-	else 
+	else
 	{
 		while (a_is_sorted(a) == FALSE)
 		{
-			if (A_SEC == find_max(a))
+			if (a->data[a->size - 2] == find_max(a))
 				ft_rra(a, b, 1);
 			else
 				ft_sa(a, b, 1);
@@ -46,10 +47,10 @@ static void		sort_3(t_stack *a, t_stack *b)
 	}
 }
 
-void			sort_5_or_less(t_stack *a, t_stack *b)
+void	sort_5_or_less(t_stack *a, t_stack *b)
 {
-	int		min;
-	int		max;
+	int	min;
+	int	max;
 
 	min = find_min(a);
 	max = find_max(a);
@@ -60,7 +61,7 @@ void			sort_5_or_less(t_stack *a, t_stack *b)
 	while (b->size > 0)
 	{
 		ft_pa(a, b, 1);
-		if (A_TOP == max)
-			ft_ra(a, b, 1); 
+		if (a->data[a->size - 1] == max)
+			ft_ra(a, b, 1);
 	}
 }

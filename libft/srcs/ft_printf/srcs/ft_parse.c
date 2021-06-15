@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 11:57:58 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/03/11 12:52:34 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:21:54 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,17 @@ void	ft_init_functions(int (*functions[]) (va_list *, t_flags *))
 	functions[8] = ft_print_prct;
 }
 
-int		ft_parse(char *str, va_list *list, int *i)
+int	ft_parse(char *str, va_list *list, int *i)
 {
-	int			(*functions[9]) (va_list *, t_flags *);
+	int			(*functions[9])(va_list *, t_flags *);
 	t_flags		flags;
 	char		*tmp;
 	int			len;
 	int			j;
 
 	j = ft_find_end(str, TYPE_FIELD);
-	if ((j == -1) || !(tmp = ft_strndup(str, j + 1)))
+	tmp = ft_strndup(str, j + 1);
+	if ((j == -1) || !tmp)
 		return (0);
 	ft_init_functions(functions);
 	ft_init_flags(tmp, &flags, list);

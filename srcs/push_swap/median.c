@@ -6,16 +6,16 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 11:46:37 by afoulqui          #+#    #+#             */
-/*   Updated: 2021/05/05 09:56:37 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 11:17:44 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		sort_nbr(int *nbr, int len)
+static void	sort_nbr(int *nbr, int len)
 {
-	int		i;
-	int		tmp;
+	int	i;
+	int	tmp;
 
 	tmp = nbr[0];
 	i = 0;
@@ -33,13 +33,13 @@ static void		sort_nbr(int *nbr, int len)
 	}
 }
 
-int				find_median(t_stack *stack, t_stack *stack2)
+int	find_median(t_stack *stack, t_stack *stack2)
 {
-	int		*sorted;
-	int		median;
-	int		i;
+	int	*sorted;
+	int	median;
+	int	i;
 
-	sorted = (int*)malloc(sizeof(int) * (stack->size + 1));
+	sorted = (int *)malloc(sizeof(int) * (stack->size + 1));
 	if (!sorted)
 		free_exit(&stack, &stack2, sorted);
 	i = 0;
@@ -54,13 +54,13 @@ int				find_median(t_stack *stack, t_stack *stack2)
 	return (median);
 }
 
-int			find_median_limit(t_stack *stack, t_stack *stack2)
+int	find_median_limit(t_stack *stack, t_stack *stack2)
 {
-	int		*sorted;
-	int		median;
-	int		size;
-	int		i;
-	int		j;
+	int	*sorted;
+	int	median;
+	int	size;
+	int	i;
+	int	j;
 
 	i = stack->size - 1;
 	size = 0;
@@ -69,7 +69,8 @@ int			find_median_limit(t_stack *stack, t_stack *stack2)
 		size++;
 		i--;
 	}
-	if (!(sorted = (int*)malloc(sizeof(int) * (size + 1))))
+	sorted = (int *)malloc(sizeof(int) * (size + 1));
+	if (!sorted)
 		free_exit(&stack, &stack2, sorted);
 	i = stack->size - 1;
 	j = 0;

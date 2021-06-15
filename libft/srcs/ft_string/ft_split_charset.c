@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:36:15 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/03/11 12:29:39 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:15:37 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static int	get_dest_nbr(char const *str, char *charset)
 	i = 0;
 	while (str[i])
 	{
-		if (((i == 0) || (find_charset(str[i - 1], charset) == 1 && i > 0)) &&
-			find_charset(str[i], charset) == 0)
+		if (((i == 0) || (find_charset(str[i - 1], charset) == 1 && i > 0))
+			&& find_charset(str[i], charset) == 0)
 			count++;
 		i++;
 	}
@@ -84,21 +84,24 @@ static char	**get_tab(char const *str, char *set, char **tab, int dest_nbr)
 	return (tab);
 }
 
-char		**ft_split_charset(const char *str, char *charset)
+char	**ft_split_charset(const char *str, char *charset)
 {
 	char	**tab;
 	int		dest_nbr;
 	char	**empty;
 
 	tab = NULL;
-	if (!(empty = malloc(sizeof(char*))))
+	empty = malloc(sizeof(char *));
+	if (!empty)
 		return (NULL);
 	empty[0] = NULL;
 	if (!str[0])
 		return (empty);
-	if (!(dest_nbr = get_dest_nbr(str, charset)))
+	dest_nbr = get_dest_nbr(str, charset);
+	if (!dest_nbr)
 		return (empty);
-	if (!(tab = malloc(sizeof(char*) * (dest_nbr + 1))))
+	tab = malloc(sizeof(char *) * (dest_nbr + 1));
+	if (!tab)
 		return (NULL);
 	tab = get_tab(str, charset, tab, dest_nbr);
 	return (tab);

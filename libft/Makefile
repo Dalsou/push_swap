@@ -6,7 +6,7 @@
 #    By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/09 15:11:50 by afoulqui          #+#    #+#              #
-#    Updated: 2020/07/16 14:10:03 by afoulqui         ###   ########.fr        #
+#    Updated: 2021/06/15 10:44:35 by afoulqui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,10 +74,10 @@ show	:
 RM		=	rm -rf
 
 clean:	
-			$(RM) objs
+			@$(RM) objs
 
 fclean:		clean
-			$(RM) $(NAME)
+			@$(RM) $(NAME)
 
 re:			fclean all
 

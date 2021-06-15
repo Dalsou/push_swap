@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afoulqui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 16:02:05 by afoulqui          #+#    #+#             */
-/*   Updated: 2019/10/24 16:58:22 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:12:13 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char*new;
-	int i;
-	int size;
+	char	*new;
+	int		i;
+	int		size;
 
 	size = 0;
 	size = ft_strlen((char *)s1);

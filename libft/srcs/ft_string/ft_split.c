@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afoulqui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 11:38:16 by afoulqui          #+#    #+#             */
-/*   Updated: 2019/10/29 14:50:29 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 13:10:47 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		get_dest_nbr(char const *s, char c)
+static int	get_dest_nbr(char const *s, char c)
 {
-	int count;
-	int i;
+	int	count;
+	int	i;
 
 	count = 0;
 	i = 0;
@@ -30,9 +30,9 @@ static int		get_dest_nbr(char const *s, char c)
 	return (count);
 }
 
-static int		get_len(char const *s, char c, int i)
+static int	get_len(char const *s, char c, int i)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (s[i] && s[i] != c)
@@ -43,7 +43,7 @@ static int		get_len(char const *s, char c, int i)
 	return (j);
 }
 
-static char		**free_tab(char **tab, int size)
+static char	**free_tab(char **tab, int size)
 {
 	int	i;
 
@@ -57,12 +57,12 @@ static char		**free_tab(char **tab, int size)
 	return (NULL);
 }
 
-static char		**get_tab(char const *s, char c, char **tab, int dest_nbr)
+static char	**get_tab(char const *s, char c, char **tab, int dest_nbr)
 {
-	int len;
-	int i;
-	int j;
-	int x;
+	int	len;
+	int	i;
+	int	j;
+	int	x;
 
 	len = 0;
 	i = 0;
@@ -85,10 +85,10 @@ static char		**get_tab(char const *s, char c, char **tab, int dest_nbr)
 	return (tab);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char		**tab;
-	size_t		dest_nbr;
+	char	**tab;
+	size_t	dest_nbr;
 
 	if (!s)
 		return (NULL);

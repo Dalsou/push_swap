@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afoulqui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 17:36:39 by afoulqui          #+#    #+#             */
-/*   Updated: 2019/10/29 10:45:38 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 12:41:35 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned char *str;
+	unsigned char	*str;
 
 	str = (unsigned char *)s;
 	if ((char)c == '\0')

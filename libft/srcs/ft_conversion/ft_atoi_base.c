@@ -6,7 +6,7 @@
 /*   By: afoulqui <afoulqui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 17:36:32 by afoulqui          #+#    #+#             */
-/*   Updated: 2020/03/23 17:50:37 by afoulqui         ###   ########.fr       */
+/*   Updated: 2021/06/15 12:26:44 by afoulqui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ long int	ft_atoi_base(char *str, char *base)
 		res = res * base_len + str[i];
 		i++;
 	}
-	return (neg ? -res : res);
+	if (neg)
+		res *= -1;
+	return (res);
 }
